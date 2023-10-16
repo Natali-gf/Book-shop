@@ -1,24 +1,15 @@
 @import '../../styles/variables.scss';
 
 .category {
-	// position: absolute;
 	width: 100%;
 	background: linear-gradient(to left, transparent 65%, $colorVioletLight 35%);
 	&__list {
-		// position: absolute;
 		display: flex;
 		flex-direction: column;
 		width: fit-content;
 		gap: 23px;
 		padding: 45px 0 80px;
 		z-index: 100;
-		&::before {
-			content: '';
-			display: block;
-			@include width-height(12px);
-			background-color: $colorVioletLight;
-			border-radius: 50%;
-		}
 	}
 	&__item {
 		display: flex;
@@ -33,13 +24,27 @@
 				content: '';
 				margin-right: 14px;
 				display: flex;
-
-
 				@include width-height(6px);
 				border-radius: 50%;
 				background-color: $colorVioletDark;
 				@include fontOpenSans(16, 20, 700, $colorTextBlack);
 			}
+		}
+	}
+	@media screen and (max-width: $sizeIpad) {
+		background: $colorVioletLight;
+		&__list {
+			flex-wrap: wrap;
+			height: 240px;
+			padding: 40px;
+			gap: 30px;
+			justify-content: space-between;
+			width: 100%;
+		}
+	}
+	@media screen and (max-width: $sizeMobile) {
+		&__list {
+			height: 420px;
 		}
 	}
 }

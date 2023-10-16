@@ -15,7 +15,7 @@
 	}
 	&__tools {
 		display: flex;
-		
+
 		gap: 40px;
 		&_profile {
 			cursor: pointer;
@@ -41,5 +41,14 @@
 			font-weight: 900;
 			color: $colorTextBlack;
 		}
+	}
+	@media screen and (max-width: $sizeIpad) {
+		width: fit-content;
+		&__item {
+			padding: 0 10px;
+		}
+	}
+	@media screen and (max-width: $sizeMobile) {
+		display: none;
 	}
 }

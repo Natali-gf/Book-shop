@@ -14,14 +14,26 @@
 		flex-wrap: wrap;
 		gap: 75px;
 		margin: 46px 0;
-
 	}
 	&__item {
 		width: 424px;
 		height: 300px;
 		pointer-events: all;
 	}
-	// top: 0;
+	@media screen and (max-width: $sizecontent) {
+		&__list {
+			flex-direction: column;
+			align-items: flex-start;
+			flex-wrap: nowrap;
+		}
+	}
+	@media screen and (max-width: $sizeIpad) {
+		position: relative;
+		&__list {
+			gap: 10px;
+		}
+
+	}
 }
 
 .book {
@@ -69,6 +81,27 @@
 		&_inCart {
 			border-color: $colorVioletLight;
 			color: $colorTextGrey;
+		}
+	}
+	@media screen and (max-width: $sizeIpad) {
+		width: 100%;
+		padding: 15px;
+	}
+	@media screen and (max-width: $sizeSmall) {
+		flex-direction: column;
+		height: fit-content;
+		gap: 5px;
+		&__img {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+		&__detail {
+			align-items: center;
+			margin: 15px 0;
+		}
+		&__description {
+			max-height: 200px;
 		}
 	}
 }
