@@ -7,9 +7,6 @@ export default class Search implements IModule {
 
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
-			// this._parentBlock.innerHTML = `
-			// <div class=${style.cart__icon}>${goodsCount}</div>`
-			// this._parentBlock.innerHTML = '';
 	}
 
 	public get parentBlock(): HTMLElement {

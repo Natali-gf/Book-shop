@@ -39,7 +39,7 @@ export default class Main implements IModule {
 	public async getBooksSection() {
 		const result: any = await this.booksRequest.getBooksByCategory();
 		const books: Book[] = toBookType(result);
-		// this.mainContent.
+		
 		BooksSection.booksData = books;
 		this.mainContent.append(this.booksSection.parentBlock);
 		this.booksSection.rendering();

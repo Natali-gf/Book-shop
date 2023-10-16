@@ -1,4 +1,3 @@
-import { images } from "../../data/sliderImages";
 import { IModule } from "../../interfaces/module";
 import { Book } from "../../types/book";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
@@ -72,5 +71,4 @@ export default class BooksSection implements IModule {
 	public get parentBlock(): HTMLElement {
 		return this._parentBlock;
 	}
-
 }

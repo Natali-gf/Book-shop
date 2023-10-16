@@ -8,6 +8,7 @@ type Nav = {
 	name: string,
 	link: string,
 }
+
 const navigationLinks: Nav[] = [
 	{name: 'books', link: '#'},
 	{name: 'audiobooks', link: '#'},

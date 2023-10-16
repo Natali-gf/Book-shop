@@ -2,7 +2,7 @@ import { Book } from "../types/book";
 
 export function toBookType(array: any): Book[] {
 	const booksArray: Book[] = [];
-	
+
 	array.forEach((item: any) => {
 		booksArray.push({
 			id: item.id,
@@ -15,5 +15,6 @@ export function toBookType(array: any): Book[] {
 			price: item.price || null,
 		})
 	});
+	
 	return booksArray;
 }

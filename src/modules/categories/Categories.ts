@@ -5,8 +5,6 @@ import { IModule } from "../../interfaces/module";
 import BooksSection from "../booksSection/BooksSection";
 import style from './style.module.scss';
 
-
-
 export default class Categories implements IModule {
 	public _parentBlock: HTMLDivElement = document.createElement('div');
 	private blockClassName: string = style.category;

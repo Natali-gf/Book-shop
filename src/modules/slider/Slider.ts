@@ -1,13 +1,16 @@
+import Config from "../../data/Config";
 import { images } from "../../data/sliderImages";
 import { IModule } from "../../interfaces/module";
 import style from './style.module.scss';
 
-
-
 export default class Slider implements IModule {
 	public _parentBlock: HTMLDivElement = document.createElement('div');
 	private blockClassName: string = `${style.slider} container`;
+	private config: Config;
 
+	constructor() {
+		this.config = new Config()
+	}
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
 		this.showImage();
@@ -27,7 +30,17 @@ export default class Slider implements IModule {
 						: style.slider__dot}>
 					</li>`
 				)).join('')}
-			</ul>`
+			</ul>
+			<div class='${style.advertisement_main} ${style.advertisement}'>
+				<a class=${style.advertisement__link} href=${this.config.advertisementMain.url}>
+					${this.config.advertisementMain.title}
+				</a>
+			</div>
+			<div class='${style.advertisement_secondary} ${style.advertisement}'>
+				<a class=${style.advertisement__link} href=${this.config.advertisementSecondary.url}>
+					${this.config.advertisementSecondary.title}
+				</a>
+			</div>`
 
 			const nextIndex = index === images.length - 1 ? 0 : index + 1;
 
