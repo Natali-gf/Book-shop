@@ -1,42 +1,85 @@
 @import '../../styles/variables.scss';
 
-.slider {
-	position: relative;
+.books {
+	position: absolute;
+	width: 100%;
 	display: flex;
-	flex-direction: column;
-	&__imageBox {
-		margin-bottom: 17px;
-	}
-	&__image {
-		display: block;
-		width: 100%;
-	}
-	&__dotList {
+	justify-content: center;
+	&__list {
+		position: relative;
 		display: flex;
-		justify-content: center;
-		gap: 10px;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		gap: 75px;
+		margin: 46px 0;
 	}
-	&__dot, &__dot_active {
-		&::before {
-			content: '';
+	&__item {
+		width: 424px;
+		height: 300px;
+	}
+	// top: 0;
+}
+
+.book {
+	display: flex;
+	gap: 36px;
+	&__img {
+		width: 212px;
+		height: 100%;
+		& img {
 			display: block;
-			@include width-height(12px);
-			background-color: $colorVioletLight;
-			border-radius: 50%;
+			width: 212px;
+			height: 100%;
 		}
-		&_active {
-			&::before {
-				background-color: $colorViolet;
-			}
-		}
+	}
+	&__detail {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 25px 0;
+	}
+	&__authors {
+		@include fontOpenSans()
+	}
+	&__title {
+		@include fontMontserrat(16, 20);
+		margin: 4px 0;
+	}
+	&__description {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin: 16px 0;
+	}
+	&__price {
+		@include fontMontserrat(13, 16, 700, $colorTextBlack);
+		margin-bottom: 16px;
+	}
+	&__buttonBuy {
+		background-color: white;
+		@include fontMontserrat(8, 10, 700, $colorVioletDark);
+		border: 1px solid $colorVioletDark;
+		@include width-height(176px, 45px);
+		text-transform: uppercase;
+		cursor: pointer;
+		padding: 17.5px 0;
 	}
 }
 
-.nav {
-	&__list {
-		display: flex;
-		gap: 40px;
-		@include fontMontserrat(10, 12, 700, $colorTextGrey);
-		text-transform: uppercase;
+.rating {
+	display: flex;
+	@include fontOpenSans();
+	align-items: center;
+	height: 10px;
+	&__avr {
+		height: 10px;
+		width: 60px;
+		background-color: $colorVioletLight;
+		mask-image: url(../../assets/icons/star.svg);
+		-webkit-mask-image: url(../../assets/icons/star.svg);
+		// background: linear-gradient(to left, $colorVioletLight 65%, $colorYellow 35%);
+		// mask-size: cover;
+	}
+	&__count {
+		margin-left: 6px;
 	}
 }

@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+
+.search {
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+	&::before {
+		content: url('../../assets/icons/search.svg');
+		display: block;
+	}
+}

@@ -1,5 +1,5 @@
 import { categories } from "../../data/categories";
-import { images } from "../../data/sliderImages";
+import BooksRequest from "../../helpers/BooksRequest";
 import { IModule } from "../../interfaces/module";
 import style from './style.module.scss';
 
@@ -8,6 +8,11 @@ import style from './style.module.scss';
 export default class Categories implements IModule {
 	public _parentBlock: HTMLDivElement = document.createElement('div');
 	private blockClassName: string = style.category;
+	private booksRequest: BooksRequest;
+
+	constructor() {
+		this.booksRequest = new BooksRequest();
+	}
 
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
@@ -16,31 +21,33 @@ export default class Categories implements IModule {
 
 	private showCategoriesList(index: number = 0) {
 		this._parentBlock.innerHTML = `
-			<ul id='categoriesList' class=${style.category__list}>
-				${categories.map((item, idx) => (
-					`<li data-index=${idx}
-						class=${index === idx
-						? style.category__item_active
-						: style.category__item}>
-						${item.name}
-					</li>`
-				)).join('')}
-			</ul>`
-
-		// const nextIndex = index === images.length - 1 ? 0 : index + 1;
+			<div class='${style.category__container} container'>
+				<ul id='categoriesList' class=${style.category__list}>
+					${categories.map((item, idx) => (
+						`<li data-index=${idx}
+							class=${index === idx
+							? style.category__item_active
+							: style.category__item}>
+							${item.name}
+						</li>`
+					)).join('')}
+				</ul>
+			</div>`
 
 		this.addEvents();
 	}
 
 	private addEvents(): void {
-		const sliderDotList = document.getElementById('sliderDotList');
+		const categoriesList = document.getElementById('categoriesList');
 
-		sliderDotList.addEventListener('click', (e: MouseEvent): void => {
+		categoriesList.addEventListener('click', async(e: MouseEvent): Promise<void> => {
+			if(e.target != categoriesList) {
+				const target: HTMLLIElement = e.target as HTMLLIElement;
+				const categoryIndex = Number(target.getAttribute('data-index'));
 
-			const target: HTMLLIElement = e.target as HTMLLIElement;
-			const choosedIndex = Number(target.getAttribute('data-index'))
-
-			this.showCategoriesList(choosedIndex);
+				this.booksRequest.getBooksByCategory(categoryIndex)
+					.then(res => console.log(res))
+			}
 		})
 	}
 

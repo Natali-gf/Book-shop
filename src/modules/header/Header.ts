@@ -1,5 +1,7 @@
 import Config from '../../data/Config';
 import { IModule } from '../../interfaces/module';
+import Search from '../search/Search';
+import ShoppingCart from '../shoppingCart/ShoppingCart';
 import style from './style.module.scss';
 
 type Nav = {
@@ -17,9 +19,13 @@ export default class Header implements IModule {
 	public _parentBlock: HTMLElement = document.createElement('header');
 	private blockClassName: string = `${style.header} container`;
 	private config: Config;
+	private shoppingCart: ShoppingCart;
+	private search: Search;
 
 	constructor() {
 		this.config = new Config();
+		this.shoppingCart = new ShoppingCart();
+		this.search = new Search();
 	}
 
 	public rendering(): void {
@@ -35,9 +41,17 @@ export default class Header implements IModule {
 					)).join('')}
 				</ul>
 			</div>
-			<div class=${style.header__tools}>
+			<div id='tools' class=${style.header__tools}>
 				<div class=${style.header__tools_profile}></div>
 			</div>`
+
+		const tools = document.getElementById('tools');
+		// console.log(tools)
+		// this.shoppingCart.rendering();
+		tools.append(this.search.parentBlock);
+		tools.append(this.shoppingCart.parentBlock);
+		this.search.rendering();
+		this.shoppingCart.rendering();
 	}
 
 	public get parentBlock(): HTMLElement {
