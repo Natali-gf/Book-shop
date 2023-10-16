@@ -2,10 +2,16 @@
 @import '../../styles/fonts.scss';
 
 .header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 116px;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 116px;
+	}
 	&__logo {
 		@include fontMontserrat(24, 30);
 		cursor: pointer;
