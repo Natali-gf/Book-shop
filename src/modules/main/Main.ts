@@ -3,6 +3,7 @@ import { toBookType } from "../../helpers/toBookType";
 import { IModule } from "../../interfaces/module";
 import { Book } from "../../types/book";
 import BooksSection from "../booksSection/BooksSection";
+import ButtonMore from "../buttonMore/ButtonMore";
 import Categories from "../categories/Categories";
 import Slider from "../slider/Slider";
 import style from './style.module.scss';
@@ -15,12 +16,14 @@ export default class Main implements IModule {
 	private categories: Categories;
 	private booksSection: BooksSection;
 	private booksRequest: BooksRequest;
+	private buttonMore: ButtonMore;
 
 	constructor() {
 		this.slider = new Slider();
 		this.categories = new Categories();
 		this.booksSection = new BooksSection();
 		this.booksRequest = new BooksRequest();
+		this.buttonMore = new ButtonMore();
 	}
 
 	public rendering(): void {
@@ -30,8 +33,10 @@ export default class Main implements IModule {
 		this.mainContent.className = style.main__content;
 		this.mainContent.append(this.categories.parentBlock);
 		this._parentBlock.append(this.mainContent);
+		this._parentBlock.append(this.buttonMore.parentBlock);
 		this.slider.rendering();
 		this.categories.rendering();
+		this.buttonMore.rendering();
 
 		this.getBooksSection();
 	}
@@ -40,7 +45,9 @@ export default class Main implements IModule {
 		const result: any = await this.booksRequest.getBooksByCategory();
 		const books: Book[] = toBookType(result);
 
+		Categories.currentCategory.startIndex = Categories.currentCategory.startIndex + 6;
 		BooksSection.booksData = books;
+
 		this.mainContent.append(this.booksSection.parentBlock);
 		this.booksSection.rendering();
 	}

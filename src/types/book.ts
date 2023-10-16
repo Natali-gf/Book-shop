@@ -7,4 +7,5 @@ export type Book = {
 	description: string,
 	image: string,
 	price: number,
+	currencyCode: string,
 }

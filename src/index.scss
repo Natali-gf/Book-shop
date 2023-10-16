@@ -1,10 +1,14 @@
 // @import Montserrat from './assets/fonts/Montserrat.ttf';
 @import './styles/reset.scss';
-
+@import './styles/variables.scss';
 
 
 .container {
-	max-width: 1120px;
+	max-width: 1180px;
 	margin: auto;
+	padding: 0 30px;
+	@media screen and (max-width: $sizeIpad) {
+		padding: 0 15px;
+	}
 }
 

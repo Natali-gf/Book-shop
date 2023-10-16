@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+@import '../booksSection/style.module.scss';
+
+.buttonBlock {
+	display: flex;
+	justify-content: center;
+	margin-left: 15%;
+	@media screen and (max-width: $sizeIpad) {
+		margin: 0;
+	}
+}
+
+.button {
+	@extend .book__buttonBuy;
+}

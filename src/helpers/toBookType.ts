@@ -12,9 +12,10 @@ export function toBookType(array: any): Book[] {
 			ratingsCount: item.volumeInfo.ratingsCount,
 			description: item.volumeInfo.description,
 			image: item.volumeInfo.imageLinks.thumbnail,
-			price: item.price || null,
+			price: item.saleInfo.retailPrice?.amount || null,
+			currencyCode: item.saleInfo.retailPrice?.currencyCode || null,
 		})
 	});
-
+	
 	return booksArray;
 }

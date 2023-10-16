@@ -9,6 +9,9 @@ export default class Categories implements IModule {
 	public _parentBlock: HTMLDivElement = document.createElement('div');
 	private blockClassName: string = style.category;
 	private booksRequest: BooksRequest;
+	static currentCategory: {index: number, startIndex: number} = {
+		index: 0, startIndex: 0,
+	}
 
 	constructor() {
 		this.booksRequest = new BooksRequest();
@@ -41,7 +44,7 @@ export default class Categories implements IModule {
 		const categoriesList: HTMLElement = document.getElementById('categoriesList');
 
 		categoriesList.addEventListener('click', async(e: MouseEvent): Promise<void> => {
-			
+
 			if(e.target != categoriesList) {
 				const target: HTMLLIElement = e.target as HTMLLIElement;
 				const categoryIndex: number = Number(target.getAttribute('data-index'));
@@ -52,6 +55,11 @@ export default class Categories implements IModule {
 						BooksSection.showBooks();
 					});
 
+				Categories.currentCategory = {
+					index: categoryIndex,
+					startIndex: 0,
+				}
+				
 				this.showCategoriesList(categoryIndex);
 			}
 		})

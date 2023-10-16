@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 
 .books {
-	position: absolute;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -28,7 +27,6 @@
 		}
 	}
 	@media screen and (max-width: $sizeIpad) {
-		position: relative;
 		&__list {
 			gap: 10px;
 		}
@@ -84,7 +82,6 @@
 	}
 	@media screen and (max-width: $sizeIpad) {
 		width: 100%;
-		padding: 15px;
 	}
 	@media screen and (max-width: $sizeSmall) {
 		flex-direction: column;

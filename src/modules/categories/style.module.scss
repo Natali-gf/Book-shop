@@ -3,6 +3,7 @@
 .category {
 	width: 100%;
 	background: linear-gradient(to left, transparent 65%, $colorVioletLight 35%);
+	position: absolute;
 	&__list {
 		display: flex;
 		flex-direction: column;
@@ -33,6 +34,7 @@
 	}
 	@media screen and (max-width: $sizeIpad) {
 		background: $colorVioletLight;
+		position: relative;
 		&__list {
 			flex-wrap: wrap;
 			height: 240px;

@@ -33,7 +33,9 @@ export default class BooksSection implements IModule {
 								<div class=${style.rating__count}>${item.ratingsCount || 0} review</div>
 							</div>
 							<div class=${style.book__description}>${item.description}</div>
-							<div class=${style.book__price}>${item.price || 'Not sale'}</div>
+							<div class=${style.book__price}>
+								${item.price || 'Out of stock'} ${item.currencyCode || ''}
+							</div>
 							<button class='${ShoppingCart.goodsInCart[item.id]
 											? style.book__buttonBuy_inCart
 											: style.book__buttonBuy} bookButton'

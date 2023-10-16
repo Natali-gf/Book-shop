@@ -7,9 +7,14 @@
 		position: relative;
 		@media screen and (max-width: $sizeIpad) {
 			flex-direction: column;
+			margin: 40px 0;
 		}
 		@media screen and (max-width: $sizeMobile) {
 			margin: 30px 0;
 		}
 	}
+}
+
+.wrapper__main {
+	margin-bottom: 30px;
 }
