@@ -2,14 +2,12 @@ import { images } from "../../data/sliderImages";
 import { IModule } from "../../interfaces/module";
 import { Book } from "../../types/book";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
-import MainButton from "../ui/button/MainBatton";
 import style from './style.module.scss';
 
 export default class BooksSection implements IModule {
 	public _parentBlock: HTMLDivElement = document.createElement('div');
 	private blockClassName: string = `${style.books}`;
 	static booksData: Book[];
-	private buttonBuy: MainButton;
 
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
@@ -17,8 +15,7 @@ export default class BooksSection implements IModule {
 		BooksSection.showBooks();
 	}
 
-	static showBooks(index: number = 0) {
-		console.log(BooksSection.booksData)
+	static showBooks() {
 		const renderedBlock: HTMLElement = document.getElementById('booksBlock');
 		renderedBlock.innerHTML = `
 			<ul id='booksList' class='${style.books__list} container'>
@@ -64,14 +61,11 @@ export default class BooksSection implements IModule {
 
 				ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id]
 					? delete ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id]
-					: ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id] = BooksSection.booksData[bookIndex]
-				BooksSection.showBooks()
+					: ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id] = BooksSection.booksData[bookIndex];
+
+				BooksSection.showBooks();
+				ShoppingCart.showCart();
 			}
-
-
-			// const target: HTMLLIElement = e.target as HTMLLIElement;
-			// const choosedIndex = Number(target.getAttribute('data-index'))
-
 		})
 	}
 

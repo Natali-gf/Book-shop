@@ -9,14 +9,21 @@ export default class ShoppingCart implements IModule {
 
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
+		this._parentBlock.id = 'shoppingCart';
+
+		ShoppingCart.showCart();
+	}
+
+	static showCart() {
+		const renderedBlock: HTMLElement = document.getElementById('shoppingCart');
 		const goodsCount: number = Object.keys(ShoppingCart.goodsInCart).length;
+
 		if(goodsCount > 0) {
-			this._parentBlock.innerHTML = `
+			renderedBlock.innerHTML = `
 			<div class=${style.cart__icon}>${goodsCount}</div>`
 		} else {
-			this._parentBlock.innerHTML = '';
+			renderedBlock.innerHTML = '';
 		}
-
 	}
 
 	public get parentBlock(): HTMLElement {

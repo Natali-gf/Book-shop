@@ -1,9 +1,0 @@
-@import '../../../styles/variables.scss';
-
-.mainButton {
-	@include fontMontserrat(8, 10, 700, $colorVioletDark);
-	border: 1px solid $colorVioletDark;
-	@include width-height(176px, 45px);
-	text-transform: uppercase;
-	cursor: pointer;
-}
