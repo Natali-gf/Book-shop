@@ -46,8 +46,6 @@ export default class Header implements IModule {
 			</div>`
 
 		const tools = document.getElementById('tools');
-		// console.log(tools)
-		// this.shoppingCart.rendering();
 		tools.append(this.search.parentBlock);
 		tools.append(this.shoppingCart.parentBlock);
 		this.search.rendering();

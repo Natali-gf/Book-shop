@@ -25,9 +25,9 @@ module.exports = {
 	],
 	devServer: {
 		static: {
-			directory: path.join(__dirname, "build"),
+			directory: path.join(__dirname, "dist"),
 		},
-		// contentBase: path.resolve(__dirname, './build'),
+		// contentBase: path.resolve(__dirname, './dist'),
 		compress: true,
 		port: 8080,
 		hot: true,
@@ -85,6 +85,6 @@ module.exports = {
 	},
     output: {
 		filename: 'main.js',
-		path: path.resolve(__dirname, 'build'),
+		path: path.resolve(__dirname, 'dist'),
     },
 }

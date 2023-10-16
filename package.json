@@ -8,7 +8,7 @@
     "build-dev": "webpack",
     "build-prod": "webpack --node-env=production",
     "build:watch": "webpack --watch",
-    "clear": "rd /s /q build",
+    "clear": "rd /s /q dist",
     "esLint": "npx eslint src/",
     "esLint:fix": "npx eslint src/ --fix"
   },

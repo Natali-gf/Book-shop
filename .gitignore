@@ -1,4 +1,5 @@
 node_modules
+dist
 
 //my own files
 instruction.md
