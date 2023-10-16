@@ -2,7 +2,7 @@
 // import { RatingType } from "../enum/rating";
 
 // export type Id = `${string}-${string}-${string}-${string}-${string}`;
-export type ParentElement = HTMLElement | HTMLDivElement | HTMLButtonElement;
+
 
 
 // export type Comment = {
@@ -15,12 +15,9 @@ export type ParentElement = HTMLElement | HTMLDivElement | HTMLButtonElement;
 // 	dataComment: Date,
 // }
 
-export interface IBlock {
-	_parentBlock: ParentElement;
-	// blockClassName: string;
-	rendering(): void;
-}
+
 
 export default class Config {
+	nameShop: string = 'Bookshop'
 	noInfoMessage: string = 'No information'
 }

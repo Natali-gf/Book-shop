@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+@import '../../styles/fonts.scss';
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 116px;
+	&__logo {
+		@include fontMontserrat(24, 30);
+		cursor: pointer;
+	}
+	&__nav {
+		width: 386px;
+	}
+	&__tools {
+		&_profile {
+			cursor: pointer;
+			&::before {
+				content: url('../../assets/icons/user.svg');
+				width: 12px;
+				height: 15px;
+				display: block;
+			}
+		}
+	}
+}
+
+.nav {
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		@include fontMontserrat(10, 12, 700, $colorTextGrey);
+		text-transform: uppercase;
+	}
+	&__item {
+		&:hover {
+			font-weight: 900;
+			color: $colorTextBlack;
+		}
+	}
+}

@@ -1,20 +1,23 @@
 import Header from "../modules/header/Header";
 import Main from "../modules/main/Main";
+// import banner from '../assets/images/banner_01.png';
 
 export default class App {
-	public app: HTMLBodyElement;
+	public _root: HTMLElement;
 	private header: Header;
 	private main: Main;
 
+
 	public constructor() {
-		this.app = document.querySelector('.wrapper');
+		this._root = document.getElementById('root');
 		this.header = new Header();
 		this.main = new Main();
 	}
 
 	public rendering(): void {
-		this.app.append(this.header.parentBlock);
-		this.app.append(this.main.parentBlock);
+		// this._root.innerHTML = `<img src="${banner}">`
+		this._root.append(this.header.parentBlock);
+		this._root.append(this.main.parentBlock);
 		this.header.rendering();
 		this.main.rendering();
 	}
@@ -35,7 +38,7 @@ export default class App {
 	// 	return JSON.parse(localStorage.getItem('allTheComments'));
 	// }
 
-	public get body(): HTMLBodyElement {
-		return this.app;
+	public get body(): HTMLElement {
+		return this._root;
 	}
 }

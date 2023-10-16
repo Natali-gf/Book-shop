@@ -64,6 +64,14 @@ module.exports = {
 					},
 				],
 			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: 'asset/resource',
+			},
+			{
+				test: /\.(ttf|woff|woff2|eot|otf)$/i,
+				type: 'asset/resource',
+			},
 		],
 	},
 	optimization: {
@@ -73,7 +81,7 @@ module.exports = {
 		],
 	},
 	resolve: {
-		extensions: [ '.tsx', '.ts', '.js' ],
+		extensions: [ '.ts', '.js', '.scss' ],
 	},
     output: {
 		filename: 'main.js',

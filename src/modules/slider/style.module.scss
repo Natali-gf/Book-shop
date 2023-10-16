@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+
+.slider {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	&__imageBox {
+		margin-bottom: 17px;
+	}
+	&__image {
+		display: block;
+		width: 100%;
+	}
+	&__dotList {
+		display: flex;
+		justify-content: center;
+		gap: 10px;
+	}
+	&__dot, &__dot_active {
+		cursor: pointer;
+		&::before {
+			content: '';
+			display: block;
+			@include width-height(12px);
+			background-color: $colorVioletLight;
+			border-radius: 50%;
+		}
+		&_active {
+			&::before {
+				background-color: $colorViolet;
+			}
+		}
+	}
+}
+
+.nav {
+	&__list {
+		display: flex;
+		gap: 40px;
+		@include fontMontserrat(10, 12, 700, $colorTextGrey);
+		text-transform: uppercase;
+	}
+}
