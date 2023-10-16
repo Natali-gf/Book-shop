@@ -9,14 +9,14 @@ export default class Slider implements IModule {
 	private config: Config;
 
 	constructor() {
-		this.config = new Config()
+		this.config = new Config();
 	}
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
 		this.showImage();
 	}
 
-	private showImage(index: number = 0) {
+	private showImage(index: number = 0): void {
 		this._parentBlock.innerHTML = `
 			<div class=${style.slider__imageBox}>
 				<img class=${style.slider__image} src=${images[index].src}>
@@ -40,7 +40,7 @@ export default class Slider implements IModule {
 				<a class=${style.advertisement__link} href=${this.config.advertisementSecondary.url}>
 					${this.config.advertisementSecondary.title}
 				</a>
-			</div>`
+			</div>`;
 
 			const nextIndex = index === images.length - 1 ? 0 : index + 1;
 
@@ -52,14 +52,14 @@ export default class Slider implements IModule {
 			this.showImage(index)
 		}, 5000);
 
-		const sliderDotList = document.getElementById('sliderDotList');
+		const sliderDotList: HTMLElement = document.getElementById('sliderDotList');
 
 		sliderDotList.addEventListener('click', (e: MouseEvent): void => {
 
 			const target: HTMLLIElement = e.target as HTMLLIElement;
-			const choosedIndex = Number(target.getAttribute('data-index'))
+			const choosedIndex: number = Number(target.getAttribute('data-index'));
 
-			clearTimeout(timerId)
+			clearTimeout(timerId);
 			this.showImage(choosedIndex);
 		})
 	}

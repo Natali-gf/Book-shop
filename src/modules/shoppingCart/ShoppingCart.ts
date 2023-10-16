@@ -14,7 +14,7 @@ export default class ShoppingCart implements IModule {
 		ShoppingCart.showCart();
 	}
 
-	static showCart() {
+	static showCart(): void {
 		const renderedBlock: HTMLElement = document.getElementById('shoppingCart');
 		const goodsCount: number = Object.keys(ShoppingCart.goodsInCart).length;
 

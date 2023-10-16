@@ -19,7 +19,7 @@ export default class Categories implements IModule {
 		this.showCategoriesList();
 	}
 
-	private showCategoriesList(index: number = 0) {
+	private showCategoriesList(index: number = 0): void {
 		this._parentBlock.innerHTML = `
 			<div class='${style.category__container} container'>
 				<ul id='categoriesList' class=${style.category__list}>
@@ -38,17 +38,18 @@ export default class Categories implements IModule {
 	}
 
 	private addEvents(): void {
-		const categoriesList = document.getElementById('categoriesList');
+		const categoriesList: HTMLElement = document.getElementById('categoriesList');
 
 		categoriesList.addEventListener('click', async(e: MouseEvent): Promise<void> => {
+			
 			if(e.target != categoriesList) {
 				const target: HTMLLIElement = e.target as HTMLLIElement;
-				const categoryIndex = Number(target.getAttribute('data-index'));
+				const categoryIndex: number = Number(target.getAttribute('data-index'));
 
 				this.booksRequest.getBooksByCategory(categoryIndex)
-					.then(response => {
+					.then((response: any) => {
 						BooksSection.booksData = toBookType(response);
-						BooksSection.showBooks()
+						BooksSection.showBooks();
 					});
 
 				this.showCategoriesList(categoryIndex);

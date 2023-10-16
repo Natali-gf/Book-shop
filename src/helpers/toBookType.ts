@@ -3,7 +3,7 @@ import { Book } from "../types/book";
 export function toBookType(array: any): Book[] {
 	const booksArray: Book[] = [];
 
-	array.forEach((item: any) => {
+	array.forEach((item: any): void => {
 		booksArray.push({
 			id: item.id,
 			title: item.volumeInfo.title,
@@ -15,6 +15,6 @@ export function toBookType(array: any): Book[] {
 			price: item.price || null,
 		})
 	});
-	
+
 	return booksArray;
 }

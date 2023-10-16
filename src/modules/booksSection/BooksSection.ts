@@ -14,7 +14,7 @@ export default class BooksSection implements IModule {
 		BooksSection.showBooks();
 	}
 
-	static showBooks() {
+	static showBooks(): void {
 		const renderedBlock: HTMLElement = document.getElementById('booksBlock');
 		renderedBlock.innerHTML = `
 			<ul id='booksList' class='${style.books__list} container'>
@@ -51,12 +51,12 @@ export default class BooksSection implements IModule {
 
 	static addEvents(): void {
 
-		const booksList = document.getElementById('booksList');
+		const booksList: HTMLElement = document.getElementById('booksList');
 
 		booksList.addEventListener('click', (e: MouseEvent): void => {
 			const target: HTMLElement = e.target as HTMLElement;
 			if (target.classList.contains('bookButton')) {
-				const bookIndex = Number(target.getAttribute('data-index'))
+				const bookIndex: number = Number(target.getAttribute('data-index'))
 
 				ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id]
 					? delete ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id]
