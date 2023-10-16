@@ -30,7 +30,7 @@ export default class BooksSection implements IModule {
 								<div class=${style.rating__avr}
 									style="background: linear-gradient(to right, #fcd809 ${item.averageRating * 100 / 5}%, #EFEEF6 ${item.averageRating * 100 / 5}%)">
 								</div>
-								<div class=${style.rating__count}>${item.ratingsCount || 0} review</div>
+								<div class=${style.rating__count}>${item.ratingsCount ? item.ratingsCount + ' review' : 'No rating'}</div>
 							</div>
 							<div class=${style.book__description}>${item.description}</div>
 							<div class=${style.book__price}>

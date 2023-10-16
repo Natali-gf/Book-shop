@@ -28,7 +28,7 @@
 	}
 	@media screen and (max-width: $sizeIpad) {
 		&__list {
-			gap: 10px;
+			gap: 30px;
 		}
 	}
 }
@@ -57,11 +57,31 @@
 	&__title {
 		@include fontMontserrat(16, 20);
 		margin: 4px 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		-ms-line-clamp: 3;
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
+		display: -webkit-box;
+		display: box;
+		word-wrap: break-word;
+		-webkit-box-orient: vertical;
+		box-orient: vertical;
 	}
 	&__description {
 		overflow: hidden;
-		text-overflow: ellipsis;
 		margin: 16px 0;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		-ms-line-clamp: 3;
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
+		display: -webkit-box;
+		display: box;
+		word-wrap: break-word;
+		-webkit-box-orient: vertical;
+		box-orient: vertical;
 	}
 	&__price {
 		@include fontMontserrat(13, 16, 700, $colorTextBlack);
