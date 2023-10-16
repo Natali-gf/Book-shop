@@ -1,14 +1,17 @@
 @import '../../styles/variables.scss';
 
 .category {
+	// position: absolute;
 	width: 100%;
 	background: linear-gradient(to left, transparent 65%, $colorVioletLight 35%);
 	&__list {
+		// position: absolute;
 		display: flex;
 		flex-direction: column;
 		width: fit-content;
 		gap: 23px;
 		padding: 45px 0 80px;
+		z-index: 100;
 		&::before {
 			content: '';
 			display: block;

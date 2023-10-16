@@ -5,6 +5,8 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	z-index: 1;
+	pointer-events: none;
 	&__list {
 		position: relative;
 		display: flex;
@@ -12,10 +14,12 @@
 		flex-wrap: wrap;
 		gap: 75px;
 		margin: 46px 0;
+
 	}
 	&__item {
 		width: 424px;
 		height: 300px;
+		pointer-events: all;
 	}
 	// top: 0;
 }
@@ -54,7 +58,7 @@
 		@include fontMontserrat(13, 16, 700, $colorTextBlack);
 		margin-bottom: 16px;
 	}
-	&__buttonBuy {
+	&__buttonBuy, &__buttonBuy_inCart {
 		background-color: white;
 		@include fontMontserrat(8, 10, 700, $colorVioletDark);
 		border: 1px solid $colorVioletDark;
@@ -62,6 +66,10 @@
 		text-transform: uppercase;
 		cursor: pointer;
 		padding: 17.5px 0;
+		&_inCart {
+			border-color: $colorVioletLight;
+			color: $colorTextGrey;
+		}
 	}
 }
 

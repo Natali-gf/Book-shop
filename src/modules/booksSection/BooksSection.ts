@@ -8,25 +8,21 @@ import style from './style.module.scss';
 export default class BooksSection implements IModule {
 	public _parentBlock: HTMLDivElement = document.createElement('div');
 	private blockClassName: string = `${style.books}`;
-	public booksData: Book[];
-	// private isBookChoosed: boolean = false;
-	// private buttonBuyName: string = this.isBookChoosed ? 'in the cart' : 'buy now';
+	static booksData: Book[];
 	private buttonBuy: MainButton;
-
-	constructor() {
-		// this.booksData
-
-	}
 
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
-		this.showBooks();
+		this._parentBlock.id = 'booksBlock';
+		BooksSection.showBooks();
 	}
 
-	private showBooks(index: number = 0) {
-		this._parentBlock.innerHTML = `
+	static showBooks(index: number = 0) {
+		console.log(BooksSection.booksData)
+		const renderedBlock: HTMLElement = document.getElementById('booksBlock');
+		renderedBlock.innerHTML = `
 			<ul id='booksList' class='${style.books__list} container'>
-				${this.booksData.map((item, idx) => (
+				${BooksSection.booksData.map((item, idx) => (
 					`<li class='${style.books__item} ${style.book}'>
 						<div class=${style.book__img}>
 							<img src=${item.image} alt=${item.title}>
@@ -42,7 +38,9 @@ export default class BooksSection implements IModule {
 							</div>
 							<div class=${style.book__description}>${item.description}</div>
 							<div class=${style.book__price}>${item.price || 'Not sale'}</div>
-							<button class='${style.book__buttonBuy} bookButton'
+							<button class='${ShoppingCart.goodsInCart[item.id]
+											? style.book__buttonBuy_inCart
+											: style.book__buttonBuy} bookButton'
 									data-index=${idx}>
 								${ShoppingCart.goodsInCart[item.id]
 								? 'in the cart' : 'buy now'}
@@ -52,10 +50,10 @@ export default class BooksSection implements IModule {
 				)).join('')}
 			</ul>`
 
-			this.addEvents();
+		BooksSection.addEvents();
 	}
 
-	private addEvents(): void {
+	static addEvents(): void {
 
 		const booksList = document.getElementById('booksList');
 
@@ -64,9 +62,10 @@ export default class BooksSection implements IModule {
 			if (target.classList.contains('bookButton')) {
 				const bookIndex = Number(target.getAttribute('data-index'))
 
-				ShoppingCart.goodsInCart[this.booksData[bookIndex].id]
-					? delete ShoppingCart.goodsInCart[this.booksData[bookIndex].id]
-					: ShoppingCart.goodsInCart[this.booksData[bookIndex].id] = this.booksData[bookIndex]
+				ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id]
+					? delete ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id]
+					: ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id] = BooksSection.booksData[bookIndex]
+				BooksSection.showBooks()
 			}
 
 
@@ -79,4 +78,5 @@ export default class BooksSection implements IModule {
 	public get parentBlock(): HTMLElement {
 		return this._parentBlock;
 	}
+
 }

@@ -1,6 +1,8 @@
 import { categories } from "../../data/categories";
 import BooksRequest from "../../helpers/BooksRequest";
+import { toBookType } from "../../helpers/toBookType";
 import { IModule } from "../../interfaces/module";
+import BooksSection from "../booksSection/BooksSection";
 import style from './style.module.scss';
 
 
@@ -46,7 +48,12 @@ export default class Categories implements IModule {
 				const categoryIndex = Number(target.getAttribute('data-index'));
 
 				this.booksRequest.getBooksByCategory(categoryIndex)
-					.then(res => console.log(res))
+					.then(response => {
+						BooksSection.booksData = toBookType(response);
+						BooksSection.showBooks()
+					});
+
+				this.showCategoriesList(categoryIndex);
 			}
 		})
 	}
