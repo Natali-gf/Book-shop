@@ -70,6 +70,7 @@
 		box-orient: vertical;
 	}
 	&__description {
+		@include fontOpenSans;
 		overflow: hidden;
 		margin: 16px 0;
 		text-overflow: ellipsis;

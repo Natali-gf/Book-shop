@@ -17,6 +17,7 @@
 		@include fontMontserrat(12, 15, 500, $colorTextGrey);
 		cursor: pointer;
 		&_active {
+			@include fontMontserrat(16, 20, 700, $colorTextBlack);
 			display: flex;
 			align-items: center;
 			margin-left: -20px;
@@ -28,7 +29,6 @@
 				@include width-height(6px);
 				border-radius: 50%;
 				background-color: $colorVioletDark;
-				@include fontOpenSans(16, 20, 700, $colorTextBlack);
 			}
 		}
 	}
