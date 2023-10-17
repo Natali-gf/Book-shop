@@ -34,11 +34,10 @@ module.exports = {
 		hot: true,
 		open: true,
 	},
-	// stats: 'none',
-	// stats: {
-	// 	children: false,
-	// 	modulesSpace: 0,
-	// },
+	stats: {
+		children: false,
+		modulesSpace: 0,
+	},
 	module: {
 		rules: [
 			{
@@ -56,6 +55,7 @@ module.exports = {
 					MiniCssExtractPlugin.loader,//вместо "style-loader" , чтобы стили подключались отдельным файлом
 					// "style-loader",
 					"css-loader",
+					'postcss-loader',
 					// "sass-loader",
 					{
 						loader: "sass-loader",
@@ -92,37 +92,13 @@ module.exports = {
 					},
 				},
 			}),
-			// new ImageMinimizerPlugin({
-			// 	minimizer: {
-			// 		implementation: ImageMinimizerPlugin.imageminMinify,
-			// 		options: {
-			// 			plugins: [
-			// 				["gifsicle", { interlaced: true }],
-			// 				["jpegtran", { progressive: true }],
-			// 				["optipng", { optimizationLevel: 5 }],
-			// 				["svgo", {
-			// 					plugins: [{
-			// 						name: "preset-default",
-			// 						params: {
-			// 							overrides: {
-			// 								removeViewBox: false,
-			// 								addAttributesToSVGElement: {
-			// 									params: {
-			// 										attributes: [
-			// 											{ xmlns: "http://www.w3.org/2000/svg" },
-			// 										],
-			// 									},
-			// 								},
-			// 							},
-			// 						},
-			// 					}],
-			// 				}],
-			// 			],
-			// 		},
-			// 	},
-			// }),
 		],
 	},
+	performance: {
+		// hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
+   	},
 	resolve: {
 		extensions: [ '.ts', '.js', '.scss' ],
 	},
