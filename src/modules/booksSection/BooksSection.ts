@@ -36,11 +36,11 @@ export default class BooksSection implements IModule {
 							<div class=${style.book__price}>
 								${item.price || 'Out of stock'} ${item.currencyCode || ''}
 							</div>
-							<button class='${ShoppingCart.goodsInCart[item.id]
+							<button class='${ShoppingCart.booksInCart[item.id]
 											? style.book__buttonBuy_inCart
 											: style.book__buttonBuy} bookButton'
 									data-index=${idx}>
-								${ShoppingCart.goodsInCart[item.id]
+								${ShoppingCart.booksInCart[item.id]
 								? 'in the cart' : 'buy now'}
 							</button>
 						</div>
@@ -60,9 +60,11 @@ export default class BooksSection implements IModule {
 			if (target.classList.contains('bookButton')) {
 				const bookIndex: number = Number(target.getAttribute('data-index'))
 
-				ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id]
-					? delete ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id]
-					: ShoppingCart.goodsInCart[BooksSection.booksData[bookIndex].id] = BooksSection.booksData[bookIndex];
+				ShoppingCart.booksInCart[BooksSection.booksData[bookIndex].id]
+					? delete ShoppingCart.booksInCart[BooksSection.booksData[bookIndex].id]
+					: ShoppingCart.booksInCart[BooksSection.booksData[bookIndex].id] = BooksSection.booksData[bookIndex];
+
+				localStorage.setItem('booksInCart', JSON.stringify(ShoppingCart.booksInCart));
 
 				BooksSection.showBooks();
 				ShoppingCart.showCart();

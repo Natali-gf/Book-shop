@@ -5,7 +5,7 @@ import style from './style.module.scss';
 export default class ShoppingCart implements IModule {
 	public _parentBlock: HTMLDivElement = document.createElement('div');
 	private blockClassName: string = `${style.cart}`;
-	static goodsInCart: {[key: string]: Book} = {};
+	static booksInCart: {[key: string]: Book} = {};
 
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
@@ -16,7 +16,7 @@ export default class ShoppingCart implements IModule {
 
 	static showCart(): void {
 		const renderedBlock: HTMLElement = document.getElementById('shoppingCart');
-		const goodsCount: number = Object.keys(ShoppingCart.goodsInCart).length;
+		const goodsCount: number = Object.keys(ShoppingCart.booksInCart).length;
 
 		if(goodsCount > 0) {
 			renderedBlock.innerHTML = `
