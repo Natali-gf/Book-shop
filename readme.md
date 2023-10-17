@@ -1,48 +1,43 @@
-Здравствуйте, уважаемый ментор. Для быстрой проверки функциональности кнопки я оставила возможность добавлять книгу в корзину, даже если нет цены, так как во время работы с API у меня буквально считанные единицы книг были с ценой.
+## Online book store
 
-UPDATE: Ниже я описала странную проблему, которая возникла, возможно вы уже проверяете работу и прочитали сообщение. В данный момент, проблема исчезла, как я и полагала, это было временное ограничение. Я вернула ключ обратно в запрос, как и требовалось в ТЗ.
+* TECHNICAL REQUIREMENTS
 
-Также ещё одна из возможных неиспраностей, это мой ключ (key_API). На момент отправки работы на проверку он больше не работает (говорит, что я слишком много запросов отправила). Возможно это временное ограничение, так как я всю работу делала в один день и запросов могло быть действительно много или причина ещё в чём-то, я не могу это выяснить (в постмане, кстати, запросы проходят с ключом, может это как-то связано с CORS-политикой в браузере), генерация нового ключа тоже не помогла, возможно это завязано на учётной записи. Заканчивала работу я убрав ключ из запроса, у меня прекрасно проходили запросы и без ключа (может это потому, что я за границей или на самом деле ключ не обязательный). По пути 'src/moduhelpersles/BookRequest.ts' на 15-ой строке есть закомментированный параметр с ключом, который можно добавить в запрос или подставить другой если он прям обязательный.
++ The bookstore should be implemented according to the SPA principle.
+That is, all user actions: loading books, switching categories - occur without reloading the page.
 
++ JS files in the project should be divided into modules (ES6), the file structure should be logical and understandable.
 
-* ТЕХНИЧЕСКИЕ ТРЕБОВАНИЯ
++ To create a project you must use npm. There should be package.json and package-lock.json files in the project folder. In package.json you need to add the npm run build script, which will start building the project.
 
-+ Книжный магазин должен быть реализован по принципу SPA.
-То есть все действия пользователя: подгрузка книг, переключение категории — происходят без перезагрузки страницы.
-
-+ JS-файлы в проекте должны быть разделены на модули (ES6), структура файлов должна быть логичной и понятной.
-
-+ Для создания проекта необходимо использовать npm. В папке проекта должны быть файлы package.json и package-lock.json. В package.json необходимо прописать скрипт npm run build, который будет запускать сборку проекта.
-
-В проекте необходимо использовать ещё как минимум 2 инструмента оптимизации разработки (помимо npm и Webpack), которые вы прошли в предыдущих модулях. Вы можете выбрать любые из списка:
-+ методология БЭМ;
-+ CSS-препроцессор Sass (или аналог);
-Шаблонизатор pug или аналог;
+The project must use at least 2 more development optimization tools (in addition to npm and Webpack), which you went through in previous modules. You can choose any from the list:
++ BEM methodology;
++ CSS preprocessor Sass (or equivalent);
+Template engine pug or similar;
 + Webpack Dev Server;
-+ - Линтер.
++ Linter.
 
-+ К проекту необходимо подключить Webpack.
-Если запустить сборку проекта, ожидается следующий результат:
-+ сборка завершается успешно и без ошибок;
-+ CSS-файлы также является частью сборки;
-+ CSS подключается отдельным файлом, не в теге <style>;
-+ JS и CSS-файлы минифицируются в процессе сборки.
++ Webpack must be connected to the project.
+If you run the project build, the following result is expected:
++ the build completes successfully and without errors;
++ CSS files are also part of the assembly;
++ CSS is included in a separate file, not in the <style> tag;
++ JS and CSS files are minified during the build process.
 
 
-* ТРЕБОВАНИЯ К ВЁРСТКЕ И CSS
+* REQUIREMENTS FOR LAYOUT AND CSS
 
-1. Вёрстка должна соответствовать макету. Добиваться Pixel-Perfect соответствия не обязательно, но основные моменты должны быть соблюдены:
-+ цветовая гамма,
-+ шрифты,
-+ размеры,
-+ отступы.
+1. + The layout must match the layout. It is not necessary to achieve Pixel-Perfect compliance, but the main points must be observed:
++ color range,
++ fonts,
++ sizes,
++ indents.
 
-2. + Приложение должно корректно отображаться на различных разрешениях. К сожалению, дизайна для мобильной версии в макете нет, поэтому постарайтесь реализовать её самостоятельно.
-Не нужно придумывать сложный дизайн, достаточно будет просто перегруппировать элементы так, чтобы они помещались на маленьком экране.
+2. + The application must be displayed correctly at various resolutions. Unfortunately, there is no design for the mobile version in the layout, so try to implement it yourself.
+You don't need to come up with a complex design, you just need to rearrange the elements so that they fit on the small screen.
 
-3. + В приложении должны присутствовать разделы <header>, <main> и <nav>. Ссылки должны быть прописаны в теге <a>, кнопки должны быть реализованы элементом <button>, и так далее. Не забывайте также про обязательный атрибут alt у изображений.
+3. + The application must contain sections <header>, <main> and <nav>. Links must be written in an <a> tag, buttons must be implemented with a <button> element, and so on. Don’t forget also about the required alt attribute for images.
 
-4. + При наведении курсора на любые кликабельные элементы должен появляться cursor: pointer.
-Соблюдайте семантическую вёрстку.
+4. + When you hover over any clickable elements, cursor: pointer should appear.
+Follow semantic layout.
 
-5. + Использовать селекторы по тегу и id для задания стилей нельзя. Используйте классы.
+5. + You cannot use tag and id selectors to set styles. Use classes.
