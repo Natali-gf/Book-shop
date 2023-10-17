@@ -20,7 +20,6 @@
 	}
 	&__tools {
 		display: flex;
-
 		gap: 40px;
 		&_profile {
 			cursor: pointer;
@@ -38,13 +37,13 @@
 	&__list {
 		display: flex;
 		justify-content: space-between;
-		@include fontMontserrat(10, 12, 700, $colorTextGrey);
+
 		text-transform: uppercase;
 	}
-	&__item {
+	&__link {
+		@include fontMontserrat(10, 12, 700, $colorTextGrey);
 		&:hover {
-			font-weight: 900;
-			color: $colorTextBlack;
+			@include fontMontserrat(10, 12, 900, $colorTextBlack);
 		}
 	}
 	@media screen and (max-width: $sizeIpad) {

@@ -28,7 +28,9 @@ export default class Header implements IModule {
 					<ul class=${style.nav__list}>
 						${navigationLinks.map((item: Link): string => (
 							`<li class=${style.nav__item}>
-								<a href=${item.link}>${item.title}</a>
+								<a class=${style.nav__link} href=${item.link}>
+									${item.title}
+								</a>
 							</li>`
 						)).join('')}
 					</ul>
