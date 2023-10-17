@@ -30,6 +30,9 @@
 				display: block;
 			}
 		}
+		@media screen and (max-width: $sizeIpad) {
+			gap: 20px;
+		}
 	}
 }
 
