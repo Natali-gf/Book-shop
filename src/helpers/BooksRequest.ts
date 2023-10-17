@@ -11,8 +11,7 @@ export default class BooksRequest {
 	public async getBooksByCategory(categoryIndex: number = 0, startIndex: number = 0): Promise<void> {
 
 		return new Promise<void>(async(resolve, reject) => {
-			const url = `https://www.googleapis.com/books/v1/volumes?q=${categories[categoryIndex].requestName}&printType=books&startIndex=${startIndex}&maxResults=${6}`;
-			// &key=${this.config.apiKey}
+			const url = `https://www.googleapis.com/books/v1/volumes?q=${categories[categoryIndex].requestName}&printType=books&startIndex=${startIndex}&maxResults=${6}&key=${this.config.apiKey}`;
 
 			fetch(url)
 				.then(response => response.json())

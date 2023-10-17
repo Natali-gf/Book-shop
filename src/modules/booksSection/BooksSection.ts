@@ -11,7 +11,10 @@ export default class BooksSection implements IModule {
 	public rendering(): void {
 		this._parentBlock.className = this.blockClassName;
 		this._parentBlock.id = 'booksBlock';
-		BooksSection.showBooks();
+
+		if(BooksSection.booksData.length) {
+			BooksSection.showBooks();
+		}
 	}
 
 	static showBooks(): void {
