@@ -32,12 +32,12 @@ export default class Slider implements IModule {
 				)).join('')}
 			</ul>
 			<div class='${style.advertisement_main} ${style.advertisement}'>
-				<a class=${style.advertisement__link} href=${this.config.advertisementMain.url}>
+				<a class=${style.advertisement__link} href=${this.config.advertisementMain.link}>
 					${this.config.advertisementMain.title}
 				</a>
 			</div>
 			<div class='${style.advertisement_secondary} ${style.advertisement}'>
-				<a class=${style.advertisement__link} href=${this.config.advertisementSecondary.url}>
+				<a class=${style.advertisement__link} href=${this.config.advertisementSecondary.link}>
 					${this.config.advertisementSecondary.title}
 				</a>
 			</div>`;
